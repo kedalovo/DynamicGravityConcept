@@ -1,0 +1,231 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+params_depth_draw_mode = 1
+albedo_color = Color( 0.811765, 0, 0, 0.572549 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+
+[sub_resource type="ConcavePolygonShape" id=5]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+params_depth_draw_mode = 1
+albedo_color = Color( 0.301961, 0, 0, 0.65098 )
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
+
+[node name="World" type="Spatial"]
+
+[node name="Plain" type="StaticBody" parent="."]
+transform = Transform( 16.7317, 0, 0, 0, 1, 0, 0, 0, 19.3138, 0, 0, 0 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Plain"]
+shape = SubResource( 2 )
+
+[node name="Platform" type="MeshInstance" parent="Plain/CollisionShape"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Slope" type="StaticBody" parent="."]
+transform = Transform( 2.92126, -0.173341, 0, 2.45636, 0.206148, 0, 0, 0, 8.31413, 9.2894, 2.7711, 0 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope/CollisionShape"]
+transform = Transform( 0.999953, 0.000683542, 0, -0.137265, 0.999952, 0, 0, 0, 1, 0.0341301, 0.575193, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Slope2" type="StaticBody" parent="."]
+transform = Transform( -2.92126, 0.173341, -7.26844e-07, 2.45636, 0.206148, 0, 2.55385e-07, -1.5154e-08, -8.31413, -8.2366, 2.7711, 0 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope2"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope2/CollisionShape"]
+transform = Transform( 0.999953, 0.000683546, 0, -0.137264, 0.999952, 0, 0, 0, 1, 0.0341303, 0.57519, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Slope3" type="StaticBody" parent="."]
+transform = Transform( 0.0244214, -0.00144911, 8.31384, 2.45636, 0.206148, 0, -2.92116, 0.173335, 0.0695052, 0.267212, 2.7711, -8.71127 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope3"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope3/CollisionShape"]
+transform = Transform( 0.999953, 0.000683546, 0, -0.137264, 0.999952, 0, 0, 0, 1, 0.0341303, 0.57519, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Slope4" type="StaticBody" parent="."]
+transform = Transform( -0.0244211, 0.0014491, -8.31384, 2.45636, 0.206148, 0, 2.92116, -0.173335, -0.0695044, 0.267212, 2.7711, 8.57195 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope4"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope4/CollisionShape"]
+transform = Transform( 0.999953, 0.000683546, 0, -0.137264, 0.999952, 0, 0, 0, 1, 0.0341303, 0.57519, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Slope5" type="StaticBody" parent="."]
+transform = Transform( 2.0483, -0.121542, -5.92792, 2.45636, 0.206148, 0, 2.08284, -0.123591, 5.82963, 4.34723, 16.6495, 5.17594 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope5"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope5/CollisionShape"]
+transform = Transform( 0.999953, 0.000683546, 0, -0.137264, 0.999952, 0, 0, 0, 1, 0.0341303, 0.57519, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Slope6" type="StaticBody" parent="."]
+transform = Transform( -2.08284, 0.123591, -5.82963, 2.45636, 0.206148, 0, 2.0483, -0.121542, -5.92792, -4.84175, 16.6495, 5.17594 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope6"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope6/CollisionShape"]
+transform = Transform( 0.999953, 0.000683546, 0, -0.137264, 0.999952, 0, 0, 0, 1, 0.0341303, 0.57519, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Slope7" type="StaticBody" parent="."]
+transform = Transform( -2.0483, 0.121542, 5.92792, 2.45636, 0.206148, 0, -2.08284, 0.123591, -5.82962, -4.84175, 16.6495, -5.369 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope7"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope7/CollisionShape"]
+transform = Transform( 0.999953, 0.000683546, 0, -0.137264, 0.999952, 0, 0, 0, 1, 0.0341303, 0.57519, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Slope8" type="StaticBody" parent="."]
+transform = Transform( 2.08284, -0.123591, 5.82962, 2.45636, 0.206148, 0, -2.0483, 0.121542, 5.92792, 4.72785, 16.6495, -5.369 )
+collision_layer = 262145
+collision_mask = 262145
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Slope8"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Slope8/CollisionShape"]
+transform = Transform( 0.999953, 0.000683546, 0, -0.137264, 0.999952, 0, 0, 0, 1, 0.0341303, 0.57519, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.731591, -0.294093, 0.615048, -0.0161961, 0.894416, 0.446942, -0.681551, -0.33694, 0.649584, 10.0607, 8.68518, 10.9805 )
+current = true
+
+[node name="Control" type="Control" parent="Camera"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Camera/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -760.0
+margin_bottom = -429.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera/Control/Panel"]
+margin_right = 121.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VectorLabel" type="Label" parent="Camera/Control/Panel/VBoxContainer"]
+margin_top = 2.0
+margin_right = 45.0
+margin_bottom = 16.0
+size_flags_horizontal = 2
+size_flags_vertical = 6
+text = "Vector:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorLabel" type="Label" parent="Camera/Control/Panel/VBoxContainer"]
+margin_top = 26.0
+margin_right = 59.0
+margin_bottom = 40.0
+size_flags_horizontal = 2
+size_flags_vertical = 6
+text = "On Floor:"
+
+[node name="GravityLabel" type="Label" parent="Camera/Control/Panel/VBoxContainer"]
+margin_top = 50.0
+margin_right = 49.0
+margin_bottom = 64.0
+size_flags_horizontal = 2
+size_flags_vertical = 6
+text = "Gravity:"
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.16725, 0 )
